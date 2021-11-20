@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'comment.css' %}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="text-align: center; background-color:wheat;">
+<h3>Public chatting site <p style="color: red;">(only for short text long ones use home page contact part then we will email you)</p></h3>
+ <div style="background-color: grey; margin-left:300px; margin-right:300px;">
+     {% for chat in chats %}
+     <P>{{chat.text}}<sup> <c style="color: red;">from {{chat.name}}</c></sup></P>
+     {% endfor %}
+ </div>
+   <form method="post" action="chat">
+       {% csrf_token %}
+       <input style="margin-bottom:20px; background-color: orange;" type="text" name="name" placeholder="Name" required><br>
+       <textarea style="width:400px; height:40px; border-radius:28px; background-color: orange;" rows="5" name="text" placeholder="Say Something..." required></textarea><br>
+       <input  type="submit" value="Submit">
+   </form>
+     {% for message in messages %}
+<h3 style="color: green;">{{message}}</h3>
+{% endfor %}
+<div style="margin-top:40px;">
+{% if user.is_authenticated %}
+    <a href="{% url 'private'%}">Private Chat Engro</a>
+    {% else %}
+      <h4>Make sure you are not registered <a href="{% url 'register' %}"> REGISTER</a> and <a href="{% url 'login' %}">LOGIN</a> to access the link to private chat Engineer RONO</h4><p style="color:red;">(After login in the link will automatically appear here)</p>
+    {% endif %}
+</div>
+</body>
+</html>

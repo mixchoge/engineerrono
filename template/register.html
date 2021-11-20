@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="stylesheet" href="{% static 'register.css' %}">
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body style="background-image:url('{% static "images/k.jpg"%}'); color:red;">
+<h>KINDLY FILL AND SUBMIT THE FORM BELOW TO HAVE AN ACCOUNT WITH US.</h>
+<div class="register">
+    <form method="post" action="">
+        {% csrf_token %}
+        FIRST_NAME: <input type="text" name="first_name" placeholder="Enter your First_name" required><br>
+        LAST_NAME: <input type="text" name="last_name" placeholder="Enter your Last_name" required><br>
+        USERNAME: <input type="text" name="username" placeholder="Enter your Username" required><br>
+        EMAIL: <input type="email" name="email" placeholder="Enter your Email" required><br>
+       PASSWORD: <input type="password" name="password1" placeholder="Enter your Password" maxlength="8" minlength="6" required><br>
+        CONFIRM-PASSWORD: <input type="password" name="password2" placeholder="Re-Enter your password" maxlength="8" minlength="6"  required><br>
+        <input type="submit" value="Register">
+    </form>
+</div>
+{% for message in messages %}
+<h2 style="color:yellow;">{{message}}</h2>
+{% endfor %}
+</body>
+</html>

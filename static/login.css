@@ -1,0 +1,21 @@
+h1{
+color:white;
+text-align:center;
+}
+h{
+color:black;
+text-align:center;
+}
+
+input[type="text"],[type="password"]{
+margin-top:30px;
+height:40px;
+border-radius:10px;
+background-color:violet;
+}
+input[type="submit"]{
+margin-top:30px;
+background-color:blue;
+height:30px;
+border-radius:20px 40px;
+}
