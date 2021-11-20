@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-r7euig+&@fpb#=vh0^^v=iq3dy+y!+v+&u_0vmqo*po_%kqq$9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'sampledomain.com']
+ALLOWED_HOSTS = ['engroapp.herokuapp.com']
 
 # Application definition
 
@@ -78,9 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '20119676',
-        'HOST': 'localhost'
+        'USER': 'dkotnisfskxeiu',
+        'PASSWORD': 'a3e76225e618c7bb42585bf169c943cb7cccd18c27094a357b9190c551898ac3',
+        'HOST': 'ec2-34-197-249-102.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
