@@ -99,15 +99,14 @@ def logout(request):
 
 
 def private(request):
-    return render(request, 'private.html')
-
-
-def texts(request):
+    message = Private.objects.filter(user=request.user)
     if request.method == 'POST':
         text = request.POST['text']
         new_message = Private.objects.create(
             user=request.user,
             text=text)
         new_message.save()
-        message = Private.objects.filter(user=request.user)
-        return render(request, 'private.html', {'message': message})
+    return render(request, 'private.html',  {'message': message})
+
+
+

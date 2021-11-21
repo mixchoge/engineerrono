@@ -13,7 +13,7 @@
 {% endfor %}
 </div>
 
-   <form method="post" action="texts">
+   <form method="post" action="private">
        {% csrf_token %}
        <textarea style="width:400px; height:40px; border-radius:28px; background-color: orange;" rows="5" name="text" placeholder="Say Something..." required></textarea><br>
        <input  type="submit" value="Submit">

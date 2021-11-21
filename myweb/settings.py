@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-r7euig+&@fpb#=vh0^^v=iq3dy+y!+v+&u_0vmqo*po_%kqq$9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['engroapp.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -78,10 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'dkotnisfskxeiu',
-        'PASSWORD': 'a3e76225e618c7bb42585bf169c943cb7cccd18c27094a357b9190c551898ac3',
-        'HOST': 'ec2-34-197-249-102.compute-1.amazonaws.com',
-        'PORT': '5432'
+        'USER': 'postgres',
+        'PASSWORD': '20119676',
+        'HOST': 'localhost',
     }
 }
 
@@ -123,7 +124,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
